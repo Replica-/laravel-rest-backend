@@ -1,0 +1,10 @@
+# Domain
+DOMAIN="localhost:8000"
+
+# Database
+DB_HOST="localhost"
+DB_NAME="adapptr"
+DB_USERNAME="root"
+DB_PASSWORD="root12"
+DB_SCHEMA_CACHE_DURATION="3600"
+

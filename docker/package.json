@@ -1,0 +1,20 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "1. Docker network_type=\"host\" mode is way too complicated. May fix this in the future. In the mean time please run \"sudo ifconfig lo0 alias 192.168.3.1\" 2. Run \"docker-compose up -d\" 3. SSH on port 2223, HTTP on 8000, Database on 33306 4. Navigate to localhost:8000/oauth to login",
+  "main": "index.js",
+  "scripts": {
+    "start": "sudo ifconfig lo0 alias 192.168.3.1; docker-compose up -d"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmplifierAgency/docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmplifierAgency/docker/issues"
+  },
+  "homepage": "https://github.com/AmplifierAgency/docker#readme"
+}

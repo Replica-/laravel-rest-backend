@@ -1,0 +1,36 @@
+# these four commands completely reset docker - useful due to disk leak (bug in osx)
+# docker rm $(docker ps -a -q)
+# docker rmi $(docker images -q)
+# docker volume rm $(docker volume ls |awk '{print $2}')
+# rm -rf ~/Library/Containers/com.docker.docker/Data/*
+
+# abc123 password for everything
+
+version: '2'
+
+services:
+  api:
+    build: ./laravel
+    hostname: laravel
+    ports:
+      - '8000:80'
+      - '2223:22'
+    depends_on:
+      - api-db
+    tty: true
+    volumes:
+      - /Volumes/src/torosolutions/api:/var/www/api
+    container_name: api
+
+  api-db:
+    image: "mysql:5.6.27"
+    container_name: api-db
+    command: mysqld --sql_mode="NO_ENGINE_SUBSTITUTION"
+    hostname: database
+    ports:
+      - '33306:3306'
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: api
+      MYSQL_DATABASE: api
