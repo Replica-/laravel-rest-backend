@@ -22,4 +22,4 @@ Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {
 
 });
 
-Route::get('user/auth', 'Auth\AuthenticateController@authenticate');
+Route::post('user/auth', 'Auth\AuthenticateController@authenticate');
