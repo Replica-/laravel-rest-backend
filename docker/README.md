@@ -9,8 +9,8 @@
 
 
 ## Adapptr
-u:admin@amplifieragency.com
-p:amplifier
+u:test@gmail.com
+p:abc123
 
 ## Mysql
 u:root
@@ -34,13 +34,11 @@ docker volume rm $(docker volume ls |awk '{print $2}')
 rm -rf ~/Library/Containers/com.docker.docker/Data/*
 
 ## Temporary fix for time drift
-/Volumes/src/docker:$ docker run -it --rm --privileged --pid=host docker_adapptrapi nsenter -t 1 -m -u -n -i date -u $(date -u +%m%d%H%M%Y)
+/Volumes/src/docker:$ docker run -it --rm --privileged --pid=host docker_api nsenter -t 1 -m -u -n -i date -u $(date -u +%m%d%H%M%Y)
 
 ## Executing commands
 # Example 1 - List queues in RABBITMQ
 docker exec -it --privileged adapptrmq /usr/lib/rabbitmq/bin/rabbitmqctl list_queues
 
-# Adapptr Check RMQ queue contents and consume
-curl -X POST -i -u guest:guest http://adapptrmq:15672/api/queues/%2f/queue.default/get --data '{"requeue":false, "count":1, "encoding":"auto"}'
 
 

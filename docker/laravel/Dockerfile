@@ -107,10 +107,6 @@ RUN apt-get install -y vim
 
 RUN apt-get install sudo -y
 
-# Geo location db
-# RUN wget -O- http://updates.maxmind.com/app/update\?license_key\=JDyEkCsPwJkN | gunzip > /usr/share/GeoIP/GeoIP.dat
-RUN wget -O- http://download.maxmind.com/app/geoip_download\?edition_id\=133\&date\=20130917\&suffix\=tar.gz\&license_key\=JDyEkCsPwJkN | tar xzvf - --strip-components 1 -C /usr/share/GeoIP/ GeoIP-133_20130917/GeoIPCity.dat
-
 #
 # RABBIT MQ
 #

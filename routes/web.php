@@ -26,6 +26,10 @@ $router->get('/', function () use ($router) {
 //e5e7a35ac033ecb7508588f9197f68ed
 $router->group(['prefix' => 'v1'], function($app)
 {
+
+    $app->get('students','StudentController@index');
+    $app->get('aggregators/getQuestPaths','StudentController@getQuestPaths');
+
     $app->post('register','UserController@create');
 
     $app->post('authorize','UserController@auth');
