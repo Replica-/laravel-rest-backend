@@ -10,7 +10,9 @@
         "vlucas/phpdotenv": "*",
         "dingo/api": "0.6.*",
         "lucadegasperi/oauth2-server-laravel": "4.0.1",
-        "palanik/lumen-cors": "dev-master"
+        "palanik/lumen-cors": "dev-master",
+        "laravelista/lumen-vendor-publish": "^2.1",
+        "spatie/laravel-permission": "^2.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

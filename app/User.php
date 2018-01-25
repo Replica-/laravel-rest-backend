@@ -7,13 +7,14 @@ use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Spatie\Permission\Traits\HasRoles;
 
 use Illuminate\Support\Facades\Hash;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
-    use Authenticatable, Authorizable;
-
+    use Authenticatable, Authorizable; HasRoles;
+    protected $guard_name = 'web'; // or whatever guard you want to use
     protected $table="users";
 
     static public function rules($id=NULL)
@@ -45,6 +46,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         ];
     }
 
+    public function branches()
+    {
+        return $this->belongsToMany('App\Branch', 'user_branches', 'user_id','branch_id');
+    }
+
+    public function organisations()
+    {
+        return $this->belongsToMany('App\Organisation', 'user_organisations', 'user_id', 'organisation_id');
+    }
 
     /**
      * The attributes that are mass assignable.

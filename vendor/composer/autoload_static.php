@@ -9,9 +9,12 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
+        '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
         'd301105305ad8abbff5ffc3e97ec9a3c' => __DIR__ . '/..' . '/vluzrmos/lumen-cors/src/helpers.php',
     );
 
@@ -31,6 +34,7 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Process\\' => 26,
@@ -40,6 +44,7 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\Permission\\' => 18,
         ),
         'P' => 
         array (
@@ -56,7 +61,9 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
             'LucaDegasperi\\OAuth2Server\\' => 27,
             'League\\OAuth2\\Server\\' => 21,
             'League\\Fractal\\' => 15,
+            'League\\Flysystem\\' => 17,
             'League\\Event\\' => 13,
+            'Laravelista\\LumenVendorPublish\\' => 31,
             'Laravel\\Lumen\\' => 14,
         ),
         'I' => 
@@ -127,6 +134,10 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         array (
             0 => __DIR__ . '/..' . '/vluzrmos/lumen-cors/src',
         ),
+        'Symfony\\Polyfill\\Php70\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -163,6 +174,10 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Spatie\\Permission\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-permission/src',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
@@ -191,9 +206,17 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         array (
             0 => __DIR__ . '/..' . '/league/fractal/src',
         ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
         'League\\Event\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/event/src',
+        ),
+        'Laravelista\\LumenVendorPublish\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelista/lumen-vendor-publish/src',
         ),
         'Laravel\\Lumen\\' => 
         array (
@@ -348,8 +371,12 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
 
     public static $classMap = array (
         'AccessTokensTableSeeder' => __DIR__ . '/..' . '/lucadegasperi/oauth2-server-laravel/seeds/AccessTokensTableSeeder.php',
+        'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
+        'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'AuthCodesTableSeeder' => __DIR__ . '/..' . '/lucadegasperi/oauth2-server-laravel/seeds/AuthCodesTableSeeder.php',
+        'Branches' => __DIR__ . '/../..' . '/database/migrations/2018_01_25_035230_branches.php',
         'ClientsTableSeeder' => __DIR__ . '/..' . '/lucadegasperi/oauth2-server-laravel/seeds/ClientsTableSeeder.php',
+        'CreatePermissionTables' => __DIR__ . '/../..' . '/database/migrations/2018_01_01_000000_create_permission_tables.php',
         'CreateTableAccessTokens' => __DIR__ . '/../..' . '/database/migrations/2017_09_25_184146_create_table_access_tokens.php',
         'CreateTableAuthorizationCodes' => __DIR__ . '/../..' . '/database/migrations/2017_09_25_184124_create_table_authorization_codes.php',
         'CreateTableEmployees' => __DIR__ . '/../..' . '/database/migrations/2017_09_23_150132_create_table_employees.php',
@@ -357,6 +384,8 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         'CreateTableUser' => __DIR__ . '/../..' . '/database/migrations/2017_09_25_162333_create_table_user.php',
         'DBTestCase' => __DIR__ . '/..' . '/lucadegasperi/oauth2-server-laravel/tests/integration/DBTestCase.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
+        'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
+        'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
         'ExampleTest' => __DIR__ . '/../..' . '/tests/ExampleTest.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
@@ -430,6 +459,7 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Organisation' => __DIR__ . '/../..' . '/database/migrations/2018_01_25_032508_create_organisation.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',
@@ -797,6 +827,7 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',
@@ -865,6 +896,7 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         'PharIo\\Version\\VersionNumber' => __DIR__ . '/..' . '/phar-io/version/src/VersionNumber.php',
         'QuestTableSeeder' => __DIR__ . '/../..' . '/database/seeds/QuestTableSeeder.php',
         'RefreshTokensTableSeeder' => __DIR__ . '/..' . '/lucadegasperi/oauth2-server-laravel/seeds/RefreshTokensTableSeeder.php',
+        'RolesAndPermissionsSeeder' => __DIR__ . '/../..' . '/database/seeds/RolesPermissionSeeder.php',
         'ScopesTableSeeder' => __DIR__ . '/..' . '/lucadegasperi/oauth2-server-laravel/seeds/ScopesTableSeeder.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
@@ -958,6 +990,7 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
         'SessionsTableSeeder' => __DIR__ . '/..' . '/lucadegasperi/oauth2-server-laravel/seeds/SessionsTableSeeder.php',
         'StudentTableSeeder' => __DIR__ . '/../..' . '/database/seeds/StudentTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
@@ -970,6 +1003,7 @@ class ComposerStaticInitdf1f68c79cd5839fa888d5125b17b3ab
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
         'UserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserTableSeeder.php',
     );
 
