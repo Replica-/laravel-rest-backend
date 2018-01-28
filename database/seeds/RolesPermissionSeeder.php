@@ -10,7 +10,13 @@ class RolesAndPermissionsSeeder extends Seeder
     public function run()
     {
         // Reset cached roles and permissions
-/*
+        $id = DB::table('users')->insertGetId([
+            'name' => "admin",
+            'username' => 'admin@api',
+            'email' => 'admin@api',
+            'password' => app('hash')->make('abc123')
+        ]);
+
         // create permissions
         Permission::create(['name' => 'users get']);
         Permission::create(['name' => 'users set']);
@@ -20,14 +26,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $role->givePermissionTo('users get');
         $role->givePermissionTo('users set');
 
-        DB::table('users')->insert([
-            'name' => "admin",
-            'username' => 'admin@api',
-            'email' => 'admin@api',
-            'password' => app('hash')->make('abc123')
-        ]);
-*/
-        $user = User::find(2);
+        $user = User::find($id);
         $user->assignRole('admin');
 
     }

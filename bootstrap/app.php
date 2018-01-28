@@ -89,6 +89,10 @@ $app->singleton(
  $app->register(App\Providers\AuthServiceProvider::class);
  $app->register(App\Providers\EventServiceProvider::class);
  $app->register(Spatie\Permission\PermissionServiceProvider::class);
+ 
+ if(class_exists('Vluzrmos\Tinker\TinkerServiceProvider')) {
+    $app->register('Vluzrmos\Tinker\TinkerServiceProvider');
+ }
 
 /*
 |--------------------------------------------------------------------------

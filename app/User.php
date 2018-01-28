@@ -11,10 +11,13 @@ use Spatie\Permission\Traits\HasRoles;
 
 use Illuminate\Support\Facades\Hash;
 
+Use App\Branch;
+Use App\Organisation;
+
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
-    use Authenticatable, Authorizable; HasRoles;
-    protected $guard_name = 'web'; // or whatever guard you want to use
+    use Authenticatable, Authorizable, HasRoles;
+    protected $guard_name = 'api'; // or whatever guard you want to use
     protected $table="users";
 
     static public function rules($id=NULL)
@@ -49,6 +52,19 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function branches()
     {
         return $this->belongsToMany('App\Branch', 'user_branches', 'user_id','branch_id');
+    }
+
+    public function getAllBranches()
+    {
+        $branches = [];
+
+        foreach ($this->organisations as $org) {
+            foreach ($org->branches as $branch) {
+                $branches[] = $branch;
+            }
+        }
+
+        return $branches;
     }
 
     public function organisations()

@@ -175,6 +175,20 @@ class UserController extends Controller
 
     }
 
+    public function viewBranches()
+    {
+        $user = Auth::user();
+
+        $model = $this->findModel($user->id);
+        $branches = $model->getAllBranches();
+
+        $response = [
+            'status' => 1,
+            'data' => $branches
+        ];
+
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+    }
 
     public function view($id)
     {
@@ -359,6 +373,7 @@ class UserController extends Controller
 
         return $token;
     }
+
 }
 
 ?>

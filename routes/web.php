@@ -11,9 +11,9 @@
 |
 */
 
+use App\User;
 
 $router->get('/', function () use ($router) {
-    //return $router->app->version();
     $response = [
         'status' => 1,
         'data' => "Laravel 5.5.* Lumen 5.5.0 RESTful API with OAuth2"
@@ -37,6 +37,8 @@ $router->group(['prefix' => 'v1'], function($app)
     $app->post('accesstoken','UserController@accesstoken');
 
     $app->post('refresh','UserController@refresh');
+
+    $app->get('me/branches','UserController@viewBranches');
 
     $app->get('me','UserController@me');
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Branches extends Migration
+class CreateTableUserOrganisations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,27 @@ class Branches extends Migration
      */
     public function up()
     {
-        Schema::create('user_organisations', function (Blueprint $table) use ($tableNames) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('organisation_id')->unsigned();
+        try{
+            Schema::create('user_organisations', function (Blueprint $table) {
+                $table->integer('user_id')->unsigned();
+                $table->integer('organisation_id')->unsigned();
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('user')
-                ->onDelete('cascade');
+                $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
 
-            $table->foreign('organisation_id')
-                ->references('id')
-                ->on('organisations')
-                ->onDelete('cascade');
+                $table->foreign('organisation_id')
+                    ->references('id')
+                    ->on('organisations')
+                    ->onDelete('cascade');
 
-            $table->primary(['user_id', 'organisation_id']);
-        });
+                $table->primary(['user_id', 'organisation_id']);
+            });
+        } catch(PDOException $ex){
+            $this->down();
+            throw $ex;
+        }
     }
 
     /**
@@ -38,6 +43,6 @@ class Branches extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('user_organisations');
     }
 }

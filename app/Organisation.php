@@ -17,11 +17,11 @@ class Organisation extends Model
 
     public function users()
     {
-        return $this->hasMany('User', 'user_organisations', 'organisation_id', 'user_id');
+        return $this->hasMany('App\User', 'user_organisations', 'organisation_id', 'user_id');
     }
 
     public function branches()
     {
-        return $this->hasMany('Branch');
+        return $this->hasMany('App\Branch', 'organisationId');
     }
 }

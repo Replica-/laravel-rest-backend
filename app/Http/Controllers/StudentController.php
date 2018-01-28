@@ -22,8 +22,6 @@ class StudentController extends Controller
     }
 
     public function getQuestPaths() {
-        $app->post('roles', 'StudentController@onceoff');
-
         $jsonInput = '
             [
                 {
