@@ -30,6 +30,9 @@ $router->group(['prefix' => 'v1'], function($app)
     $app->get('students','StudentController@index');
     $app->get('aggregators/getQuestPaths','StudentController@getQuestPaths');
 
+    $app->patch('branch/{id}','BranchController@update');
+
+
     $app->post('register','UserController@create');
 
     $app->post('authorize','UserController@auth');
