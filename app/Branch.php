@@ -3,6 +3,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+Use App\Organisation;
+
 class Branch extends Model
 {
 
@@ -15,7 +17,7 @@ class Branch extends Model
     protected $table="branches";
 
     public function organisation() {
-        return $this->belongsTo('Organisation');
+        return $this->belongsTo('App\Organisation', 'organisationId');
     }
 
     public function user()

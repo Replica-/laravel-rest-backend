@@ -11,9 +11,8 @@ class Organisation extends Model
     *
     * @var array
     */
-    protected $fillable = ['companyname'];
 
-    protected $table="users";
+    protected $table="organisations";
 
     public function users()
     {
@@ -24,4 +23,6 @@ class Organisation extends Model
     {
         return $this->hasMany('App\Branch', 'organisationId');
     }
+
+
 }

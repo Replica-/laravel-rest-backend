@@ -175,6 +175,22 @@ class UserController extends Controller
 
     }
 
+    public function viewOrgs()
+    {
+        $user = Auth::user();
+
+        $model = $this->findModel($user->id);
+
+        $orgs = $model->getAllOrganisations();
+
+        $response = [
+            'status' => 1,
+            'data' => $orgs
+        ];
+
+        return response()->json($response, 200, [], JSON_PRETTY_PRINT);
+    }
+
     public function viewBranches()
     {
         $user = Auth::user();

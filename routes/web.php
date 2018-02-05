@@ -31,7 +31,7 @@ $router->group(['prefix' => 'v1'], function($app)
     $app->get('aggregators/getQuestPaths','StudentController@getQuestPaths');
 
     $app->patch('branch/{id}','BranchController@update');
-
+    $app->patch('org/{id}','OrgController@update');
 
     $app->post('register','UserController@create');
 
@@ -42,6 +42,7 @@ $router->group(['prefix' => 'v1'], function($app)
     $app->post('refresh','UserController@refresh');
 
     $app->get('me/branches','UserController@viewBranches');
+    $app->get('me/orgs','UserController@viewOrgs');
 
     $app->get('me','UserController@me');
 

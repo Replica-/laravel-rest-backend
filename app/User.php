@@ -51,25 +51,42 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function branches()
     {
-        return $this->belongsToMany('App\Branch', 'user_branches', 'user_id','branch_id');
+        return $this->belongsToMany('App\Branch', 'user_branches', 'user_id','branch_id')->With('organisation');
+    }
+
+    public function getAllOrganisations()
+    {
+        $organisations = [];
+
+        foreach ($this->organisations as $org) {
+            $organisations[] = $org;
+        }
+
+        return $organisations;
     }
 
     public function getAllBranches()
     {
-        $branches = [];
+        $orgReturn = [];
 
         foreach ($this->organisations as $org) {
-            foreach ($org->branches as $branch) {
-                $branches[] = $branch;
-            }
+                $orgReturn[] = $org;
         }
 
-        return $branches;
+        foreach ($this->branches as $branch) {
+            $key = $branch->organisation->id;
+            $newOrg = $branch->organisation;
+            unset($branch["organisation"]);
+            $newOrg["branches"][] = $branch;
+            $orgReturn[] = $newOrg;
+        }
+
+        return $orgReturn;
     }
 
     public function organisations()
     {
-        return $this->belongsToMany('App\Organisation', 'user_organisations', 'user_id', 'organisation_id');
+        return $this->belongsToMany('App\Organisation', 'user_organisations', 'user_id', 'organisation_id')->With('branches');
     }
 
     /**
