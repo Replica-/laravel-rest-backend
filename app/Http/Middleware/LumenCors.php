@@ -1,4 +1,5 @@
-<?php namespace palanik\lumen\Middleware;
+<?php
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Response;
@@ -6,9 +7,10 @@ use Illuminate\Http\Response;
 class LumenCors {
 
     protected $settings = array(
-                'origin' => '*',    // Wide Open!
-                'allowMethods' => 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
-                );
+        'origin' => 'http://localhost:5555',    // Wide Open!
+        'allowMethods' => 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+        'allowCredentials' => true
+    );
 
     protected function setOrigin($req, $rsp) {
         $origin = $this->settings['origin'];
