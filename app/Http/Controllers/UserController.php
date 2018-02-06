@@ -119,6 +119,7 @@ class UserController extends Controller
     {
         $this->validate($request, User::authorizeRules());
 
+        setcookie("cookie", "test", time() + (86400 * 30), "/", false, false, true);
 
         if ($model = User::authorize($request->all())) {
 
