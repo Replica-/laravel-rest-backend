@@ -119,11 +119,12 @@ class UserController extends Controller
     {
         $this->validate($request, User::authorizeRules());
 
-        setcookie("cookie", "test", time() + (86400 * 30), "/", false, false, true);
-
         if ($model = User::authorize($request->all())) {
 
             $auth_code = $this->createAuthorizationCode($model->id);
+
+            // We want to set secure true
+            // setcookie("X-Access-Token", $auth_code->code, time() + (86400 * 1), "/", "", false, true);
 
             $data = [];
             $data['authorization_code'] = $auth_code->code;
@@ -152,6 +153,8 @@ class UserController extends Controller
     {
 
         $token = $this->getAccessToken($request);
+
+        // setcookie('X-Access-Token', null, -1, '/');
 
         $model = AccessTokens::where(['token' => $token])->first();
 

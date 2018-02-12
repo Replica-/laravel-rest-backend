@@ -31,7 +31,9 @@ $router->group(['prefix' => 'v1'], function($app)
     $app->get('aggregators/getQuestPaths','StudentController@getQuestPaths');
 
     $app->patch('branch/{id}','BranchController@update');
+
     $app->patch('org/{id}','OrgController@update');
+    $app->post('org','OrgController@add');
 
     $app->post('register','UserController@create');
 
@@ -57,13 +59,9 @@ $router->group(['prefix' => 'v1'], function($app)
     $app->get('users','UserController@index');
 
     $app->post('employees','EmployeesController@create');
-
     $app->put('employees/{id}','EmployeesController@update');
-
     $app->get('employees/{id}','EmployeesController@view');
-
     $app->delete('employees/{id}','EmployeesController@deleteRecord');
-
     $app->get('employees','EmployeesController@index');
 
 
